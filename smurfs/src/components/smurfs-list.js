@@ -2,14 +2,13 @@ import React from "react";
 import { connect } from "react-redux";
 import Smurf from "./smurf";
 
-function SmurfsList({ smurfs, fetchingSmurfs, error }) {
-  console.log(smurfs);
-  if (error) {
-    return <p>{error}</p>;
+function SmurfsList({ smurfs, loading, error }) {
+  if (loading) {
+    return <p>Loading...</p>;
   }
 
-  if (fetchingSmurfs) {
-    return <p>Loading...</p>;
+  if (error) {
+    return <p>{error}</p>;
   }
 
   return (
@@ -25,7 +24,7 @@ function SmurfsList({ smurfs, fetchingSmurfs, error }) {
 
 const mapStateToProps = state => {
   return {
-    fetchingSmurfs: state.fetchingSmurfs,
+    loading: state.loading,
     error: state.error,
     smurfs: state.smurfs
   };
