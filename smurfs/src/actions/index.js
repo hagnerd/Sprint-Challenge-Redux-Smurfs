@@ -65,3 +65,18 @@ export const updateSmurf = (id, payload) => async dispatch => {
       dispatch({ type: REQUEST_FAILURE });
     });
 };
+
+export const deleteSmurf = id => async dispatch => {
+  dispatch({ type: REQUEST_START });
+
+  return axios
+    .delete(`${BASE_URL}/smurfs/${id}`)
+    .then(res => {
+      dispatch({ type: REQUEST_SUCCESS, payload: res.data });
+    })
+    .catch(err => {
+      console.log(err);
+
+      dispatch({ type: REQUEST_FAILURE });
+    });
+};
