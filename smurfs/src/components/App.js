@@ -4,6 +4,8 @@ import { Route } from "react-router-dom";
 
 import HomePage from "../pages/home";
 import NewSmurfPage from "../pages/new";
+import SmurfDetailPage from "../pages/smurf-detail-page";
+import Navigation from "./navigation";
 
 import { fetchSmurfs } from "../actions";
 import "./App.css";
@@ -15,10 +17,14 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <Route exact path="/" component={HomePage} />
-        <Route exact path="/new" component={NewSmurfPage} />
-      </div>
+      <>
+        <Navigation />
+        <div className="App">
+          <Route exact path="/" component={HomePage} />
+          <Route exact path="/new" component={NewSmurfPage} />
+          <Route exact path="/:id/" component={SmurfDetailPage} />
+        </div>
+      </>
     );
   }
 }
