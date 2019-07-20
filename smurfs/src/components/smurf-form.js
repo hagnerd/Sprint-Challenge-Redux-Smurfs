@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import Input from "./input";
+
 export default class SmurfForm extends React.Component {
   state = {
     name: this.props.name,
@@ -41,11 +43,18 @@ export default class SmurfForm extends React.Component {
     const { name, age, height } = this.state;
 
     return (
-      <>
-        {this.props.error && <p style={{ color: "red" }}>{this.props.error}</p>}
-        <form onSubmit={this.handleSubmit}>
+      <div className="w-1/2 mx-auto">
+        {this.props.error && (
+          <p className="text-red-400 text-xl font-semibold">
+            {this.props.error}
+          </p>
+        )}
+        <form
+          className="flex flex-col my-8 w-full mx-auto items-center bg-white rounded-lg shadow-lg p-8"
+          onSubmit={this.handleSubmit}
+        >
           <label htmlFor="name">Name:</label>
-          <input
+          <Input
             id="name"
             name="name"
             type="text"
@@ -54,7 +63,7 @@ export default class SmurfForm extends React.Component {
           />
           <br />
           <label htmlFor="age">Age:</label>
-          <input
+          <Input
             id="age"
             name="age"
             type="number"
@@ -64,7 +73,7 @@ export default class SmurfForm extends React.Component {
           />
           <br />
           <label htmlFor="height">Height:</label>
-          <input
+          <Input
             id="height"
             name="height"
             type="text"
@@ -75,10 +84,15 @@ export default class SmurfForm extends React.Component {
           {this.props.submitting ? (
             <p>Submitting Smurf...</p>
           ) : (
-            <button type="submit">{this.props.submitText}</button>
+            <button
+              className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded"
+              type="submit"
+            >
+              {this.props.submitText}
+            </button>
           )}
         </form>
-      </>
+      </div>
     );
   }
 }

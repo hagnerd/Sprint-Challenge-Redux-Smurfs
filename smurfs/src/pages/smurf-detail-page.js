@@ -21,14 +21,28 @@ function SmurfDetailPage({ smurf, loading, match, history, deleteSmurf }) {
   };
 
   return (
-    <>
-      <h1>All About {smurf.name}</h1>
-      <Smurf {...smurf} />
-      <div>
-        <Link to={`/${match.params.id}/edit`}>Edit Smurf</Link>
-        <button onClick={handleDelete}>Delete Smurf</button>
+    <div className="flex flex-col w-1/2 mx-auto">
+      <h1 className="text-3xl text-blue-500 font-extrabold my-8 text-center">
+        All About {smurf.name}
+      </h1>
+      <div className="p-8 bg-white rounded-lg shadow-xl mb-8">
+        <Smurf {...smurf} />
       </div>
-    </>
+      <div className="flex w-1/2 mx-auto justify-around">
+        <Link
+          className="bg-green-500 rounded-lg py-3 px-5 hover:bg-green-400"
+          to={`/${match.params.id}/edit`}
+        >
+          Edit Smurf
+        </Link>
+        <button
+          className="bg-red-500 rounded-lg py-3 px-5 hover:bg-red-400"
+          onClick={handleDelete}
+        >
+          Delete Smurf
+        </button>
+      </div>
+    </div>
   );
 }
 

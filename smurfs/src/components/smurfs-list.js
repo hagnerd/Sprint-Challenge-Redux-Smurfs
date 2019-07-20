@@ -13,9 +13,12 @@ function SmurfsList({ smurfs, loading, error }) {
   }
 
   return (
-    <ul>
+    <ul className="w-1/2 mx-auto">
       {smurfs.map(smurf => (
-        <li key={smurf.id}>
+        <li
+          className="bg-white w-full p-5 rounded-lg shadow-md my-6 hover:shadow-xl"
+          key={smurf.id}
+        >
           <Link to={`${smurf.id}`}>
             <Smurf {...smurf} />
           </Link>

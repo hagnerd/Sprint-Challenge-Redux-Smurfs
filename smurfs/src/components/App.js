@@ -17,7 +17,7 @@ class App extends Component {
 
   render() {
     return (
-      <>
+      <div className="bg-gray-200 min-h-screen h-full">
         <Navigation />
         <div className="App">
           <Switch>
@@ -27,7 +27,7 @@ class App extends Component {
             <Route exact path="/:id/" component={SmurfDetailPage} />
           </Switch>
         </div>
-      </>
+      </div>
     );
   }
 }

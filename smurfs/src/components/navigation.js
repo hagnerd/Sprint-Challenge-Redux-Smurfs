@@ -14,8 +14,8 @@ function StyledNavLink({ children, ...rest }) {
 
 export default function Navigation() {
   return (
-    <nav>
-      <ul className="flex w-1/2 mx-auto justify-around items-center h-10">
+    <nav className="py-2">
+      <ul className="flex bg-white w-1/2 mx-auto justify-around items-center h-10 rounded-lg shadow-md">
         <li>
           <StyledNavLink to="/">Home</StyledNavLink>
         </li>

@@ -11,7 +11,9 @@ function NewSmurfPage({ submitting, error, addSmurf, history }) {
 
   return (
     <>
-      <h1>Create a New Smurf</h1>
+      <h1 className="text-center text-3xl font-extrabold text-blue-500 my-8">
+        Create a New Smurf
+      </h1>
 
       <SmurfForm
         handleSubmit={payload =>

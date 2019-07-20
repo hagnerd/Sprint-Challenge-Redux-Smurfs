@@ -24,7 +24,9 @@ function EditSmurfPage({
 
   return (
     <>
-      <h1>Edit {smurf.name}</h1>
+      <h1 className="text-3xl text-center font-extrabold text-blue-500 my-8">
+        Edit {smurf.name}
+      </h1>
 
       <SmurfForm
         handleSubmit={payload =>
