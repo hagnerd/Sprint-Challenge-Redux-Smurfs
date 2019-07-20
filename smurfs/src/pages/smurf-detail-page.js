@@ -1,9 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 import Smurf from "../components/smurf";
 
-function SmurfDetailPage({ smurf, loading }) {
+function SmurfDetailPage({ smurf, loading, match }) {
   if (loading) {
     return <p>Tracking down that little bugger...</p>;
   }
@@ -16,6 +17,9 @@ function SmurfDetailPage({ smurf, loading }) {
     <>
       <h1>All About {smurf.name}</h1>
       <Smurf {...smurf} />
+      <div>
+        <Link to={`/${match.params.id}/edit`}>Edit Smurf</Link>
+      </div>
       {/* TODO: Add an Edit, and a Delete button */}
     </>
   );
