@@ -31,8 +31,7 @@ export const fetchSmurfs = () => async dispatch => {
       dispatch({ type: REQUEST_SUCCESS, payload: res.data });
     })
     .catch(err => {
-      console.log(err);
-      dispatch({ type: REQUEST_FAILURE });
+      dispatch({ type: REQUEST_FAILURE, payload: err.Error });
     });
 };
 
@@ -45,9 +44,7 @@ export const addSmurf = payload => async dispatch => {
       dispatch({ type: REQUEST_SUCCESS, payload: res.data });
     })
     .catch(err => {
-      console.log(err);
-
-      dispatch({ type: REQUEST_FAILURE });
+      dispatch({ type: REQUEST_FAILURE, payload: err.Error });
     });
 };
 
@@ -60,9 +57,7 @@ export const updateSmurf = (id, payload) => async dispatch => {
       dispatch({ type: REQUEST_SUCCESS, payload: res.data });
     })
     .catch(err => {
-      console.log(err);
-
-      dispatch({ type: REQUEST_FAILURE });
+      dispatch({ type: REQUEST_FAILURE, payload: err.Error });
     });
 };
 
@@ -75,8 +70,6 @@ export const deleteSmurf = id => async dispatch => {
       dispatch({ type: REQUEST_SUCCESS, payload: res.data });
     })
     .catch(err => {
-      console.log(err);
-
-      dispatch({ type: REQUEST_FAILURE });
+      dispatch({ type: REQUEST_FAILURE, payload: err.Error });
     });
 };
