@@ -1,3 +1,7 @@
+import axios from "axios";
+
+const BASE_URL = "http://localhost:3333";
+
 /* 
   Action Types Go Here!
   Be sure to export each action type so you can pull it into your reducer
@@ -13,3 +17,21 @@
    U - updateSmurf
    D - deleteSmurf
 */
+
+export const FETCH_SMURFS_START = "FETCH_SMURFS_START";
+export const FETCH_SMURFS_SUCCESS = "FETCH_SMURFS_SUCCESS";
+export const FETCH_SMURFS_FAILURE = "FETCH_SMURFS_FAILURE";
+
+export const fetchSmurfs = () => async dispatch => {
+  dispatch({ type: FETCH_SMURFS_START });
+
+  return axios
+    .get(`${BASE_URL}/smurfs`)
+    .then(res => {
+      dispatch({ type: FETCH_SMURFS_SUCCESS, payload: res.data });
+    })
+    .catch(err => {
+      console.log(err);
+      dispatch({ type: FETCH_SMURFS_FAILURE });
+    });
+};
