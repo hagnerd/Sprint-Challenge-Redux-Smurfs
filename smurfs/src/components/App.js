@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 import HomePage from "../pages/home";
 import NewSmurfPage from "../pages/new";
@@ -21,10 +21,12 @@ class App extends Component {
       <>
         <Navigation />
         <div className="App">
-          <Route exact path="/" component={HomePage} />
-          <Route exact path="/new" component={NewSmurfPage} />
-          <Route exact path="/:id/edit" component={EditSmurfPage} />
-          <Route exact path="/:id/" component={SmurfDetailPage} />
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route exact path="/new" component={NewSmurfPage} />
+            <Route exact path="/:id/edit" component={EditSmurfPage} />
+            <Route exact path="/:id/" component={SmurfDetailPage} />
+          </Switch>
         </div>
       </>
     );

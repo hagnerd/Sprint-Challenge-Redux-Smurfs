@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 export default class SmurfForm extends React.Component {
   state = {
     name: this.props.name,
-    age: this.props.age,
+    age: Number(this.props.age),
     height: this.props.height
   };
 
