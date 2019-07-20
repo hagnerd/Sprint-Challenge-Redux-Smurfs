@@ -5,7 +5,7 @@ export default function Smurf({ name, age, height }) {
     <div>
       <h2>{name}</h2>
       <p>
-        {height} - {age} years old
+        {height} tall - {age} years old
       </p>
     </div>
   );

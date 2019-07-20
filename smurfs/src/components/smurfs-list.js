@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import Smurf from "./smurf";
 
@@ -15,7 +16,9 @@ function SmurfsList({ smurfs, loading, error }) {
     <ul>
       {smurfs.map(smurf => (
         <li key={smurf.id}>
-          <Smurf {...smurf} />
+          <Link to={`${smurf.id}`}>
+            <Smurf {...smurf} />
+          </Link>
         </li>
       ))}
     </ul>
