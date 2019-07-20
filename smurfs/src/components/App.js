@@ -9,7 +9,6 @@ import EditSmurfPage from "../pages/edit";
 import Navigation from "./navigation";
 
 import { fetchSmurfs } from "../actions";
-import "./App.css";
 
 class App extends Component {
   componentDidMount() {
