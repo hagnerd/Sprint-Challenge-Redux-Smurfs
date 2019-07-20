@@ -23,8 +23,37 @@ In this challenge, you are to build the Smurfs village once again, only this tim
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+
+    Actions are plain old JavaScript objects that at the very least contain a
+    key of `type`, that contains some identifier for what the action, as well as
+    optional keys including a `payload` which can contain additional information
+    like state to factor into the state update.
+
+    Reducers are pure functions that take in state, and an action object, and
+    then returns new state. For Redux to work, the updates should be immutable
+    (not change the previous state).
+
+    The Store contains the state for the Redux application, and allows us to
+    interact by dispatching actions, reading state, etc.
+
 - [ ] What is the difference between Application state and Component state? When would be a good time to use one over the other?
+
+    When using Redux application state is the state that lives in your Redux
+    store, and Component state is state that lives within a Component itself.
+    State that is transient should live in Component state, such as form data that
+    does not need to be persisted until it is submitted. If you have state that
+    is needed in many places in your application, it is probably a good idea to
+    store it in Application state.
+
 - [ ] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+
+    `redux-thunk` is a Redux middleware package that allows you to return a
+    function from an action creator instead of an action, and gets a parameter
+    of `dispatch`, which is the dispatch function from Redux. This allows you to use
+    `dispatch` in an asynchronous way such as fetching data, having more control
+    of when an action should be dispatched (i.e. dispatch a loading action when
+  the request starts, a success action when the request success, or a failure
+  action when the request fails).
 
 ## Project Set Up
 
