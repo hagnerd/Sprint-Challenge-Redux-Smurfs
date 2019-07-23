@@ -1,22 +1,42 @@
-import React, { Component } from 'react';
-import './App.css';
-/*
- to wire this component up you're going to need a few things.
- I'll let you do this part on your own. 
- Just remember, `how do I `connect` my components to redux?`
- `How do I ensure that my component links the state to props?`
- */
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Route, Switch } from "react-router-dom";
+
+import HomePage from "../pages/home";
+import NewSmurfPage from "../pages/new";
+import SmurfDetailPage from "../pages/smurf-detail-page";
+import EditSmurfPage from "../pages/edit";
+import Navigation from "./navigation";
+
+import { fetchSmurfs } from "../actions";
+
 class App extends Component {
+  componentDidMount() {
+    this.props.fetchSmurfs();
+  }
+
   render() {
     return (
-      <div className="App">
-        <h1>SMURFS! 2.0 W/ Redux</h1>
-        <div>Welcome to your Redux version of Smurfs!</div>
-        <div>Start inside of your `src/index.js` file!</div>
-        <div>Have fun!</div>
+      <div className="bg-gray-200 min-h-screen h-full">
+        <Navigation />
+        <div className="App">
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route exact path="/new" component={NewSmurfPage} />
+            <Route exact path="/:id/edit" component={EditSmurfPage} />
+            <Route exact path="/:id/" component={SmurfDetailPage} />
+          </Switch>
+        </div>
       </div>
     );
   }
 }
 
-export default App;
+const mapDispatchToProps = {
+  fetchSmurfs
+};
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(App);
